@@ -2,7 +2,7 @@ import React from 'react'
 
 const Logo = () => {
     return (
-        <div className="col">
+        <div className="container logo">
             <a href="/" className="navbar-brand">Hello Bunnies!</a>
         </div>
     )
