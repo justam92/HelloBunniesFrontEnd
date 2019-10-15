@@ -1,0 +1,18 @@
+.logo{
+    width: 100vw;
+    text-align: center;
+    margin: 4em 0;
+  }
+  
+  .logo a{
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 2em;
+    text-transform: uppercase;
+  }
+  
+  .logo a:hover{
+    color: #F2C063;
+    text-decoration: none;
+  }

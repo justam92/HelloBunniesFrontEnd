@@ -1,0 +1,136 @@
+
+ .menu nav.navbar.navbar-collapse {
+    display: flex;
+    justify-content: center;
+    background:  rgba(217, 190, 184, 0.877);
+    border-bottom: 2px solid rgba(78, 46, 5, 0.637);
+  }
+  
+  .menu nav.navbar.navbar-collapse li{
+    padding: 0.25em 0.5em;
+    margin: 0 0.25em;
+  }
+  
+  .menu nav.navbar.navbar-collapse li.dropdown-item{
+    margin: 0;
+  }
+  
+  .menu nav.navbar.navbar-collapse li.dropdown-item:hover{
+    background: rgba(38, 11, 1, 0.575);
+    color: #D9BEB8;
+  }
+  
+  .menu nav.navbar.navbar-collapse li, .menu nav.navbar.navbar-collapse div.dropdown-toggle{
+    color: #260B01;
+  }
+  
+  .menu a:hover{
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .menu nav.navbar.navbar-collapse div.dropdown-toggle:hover{
+    cursor: pointer;
+  }
+  
+  .menu ul.dropdown-menu.show{
+    background: rgba(217, 190, 184);
+    border: 2px solid rgba(78, 46, 5, 0.637);
+  }
+  
+  .menu ul.dropdown-menu.show a, .dropdown-header, .megamenu p{
+    text-align: center;
+  }
+  
+  /* .megamenu p{
+    text-decoration: underline;
+    margin: 0.75em 0 0.25em 0;
+  }
+  
+  .megamenu> li > ul > li {
+      list-style:none;
+  }
+  
+  .dropdown-menu.megamenu {
+    position: absolute;
+    left: -43vw;
+    min-width: 85vw;
+    padding: 1.5em 0;
+  }
+  
+  .megamenu .col-sm-3{
+    float: left;
+    max-width: 20vw;
+  }
+  
+  .megamenu .col-sm-3 ul{
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  
+  .divider{
+    height: 2vh;
+  }
+  
+  .dropdown-header{
+    text-transform: uppercase;
+    border-top: 1px solid #260B01;
+    border-bottom: 1px solid #260B01;
+  }
+
+  @media screen and (max-width: 1450px) {
+    .dropdown-menu.megamenu {
+        position: absolute;
+        left: 0;
+        min-width: 300px;
+        max-height: 90vh;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+    }
+
+    ::-webkit-scrollbar-button,{ 
+        display: block; 
+        height: 13px; 
+        border-radius: 0px; 
+        background-color: #AAA; 
+    } 
+    
+    ::-webkit-scrollbar-button:hover{ 
+        background-color: #AAA; 
+    } 
+
+    ::-webkit-scrollbar-thumb{ 
+        background-color: #000000; 
+    } 
+
+    ::-webkit-scrollbar-thumb:hover{ 
+        background-color: #CCC; 
+    } 
+
+    ::-webkit-scrollbar-track{ 
+        background-color: #efefef; 
+    } 
+
+
+    ::-webkit-scrollbar-track:hover{ 
+        background-color: #CCC; 
+    } 
+
+    ::-webkit-scrollbar{ 
+        width: 13px; 
+    }
+
+    .megamenu .col-sm-3{
+        float: none;
+        min-width: 300px;
+    }
+
+    
+  } */
+
+/*   
+  @media screen and (max-width: 1400px) {
+    .dropdown-menu.megamenu {
+        max-width: 25vw;
+    }
+  } */
