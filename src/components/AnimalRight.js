@@ -1,15 +1,60 @@
 import React from 'react'
 
-const AnimalRight = () => {
-    return (
-        <div className="container mainContent">
-            <h4 className="center">AnimalRight</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+export default class AnimalRight extends React.Component {
 
-        </div>
-    )
+    state = {
+        animalRights: [],
+        isLoaded: false,
+        error: null
+    }
+
+    componentDidMount() {
+        fetch("http://localhost:8080/animalRights")
+            .then(response => response.json())
+            .then(result => {
+                this.setState({
+                    isLoaded: true,
+                    animalRights: result
+                });
+                console.log(this.state.animalRights)
+            }, error => {
+                this.setState({
+                    isLoaded: true,
+                    error: error
+                });
+            });
+    }
+
+    componentDidUpdate(prevProp) {
+        this.state.animalRights.map((animalRight, index) => {
+            this.refs['animalRight' + index].innerHTML = animalRight.description
+        });
+    }
+
+    render() {
+        let isLoaded = this.state.isLoaded;
+        let error = this.state.error;
+
+        if (isLoaded) {
+            if(error){
+                return (
+                <div className="container mainContent"> <p> Błąd wczytywania :( </p></div>
+                )
+            }
+            return (
+                <div className="container mainContent">
+                    {this.state.animalRights.map((animalRight, index) => (
+                        <span>
+                            <h4 className="center"> {animalRight.name} </h4>
+                            <p ref={'animalRight' + index}> </p>
+                        </span>
+                    ))}
+                </div>
+            )
+        } else { 
+            return (
+                <div className="container mainContent"> <p> Wczytywanie . . . </p> </div>
+            )
+        }
+    }
 }
-
-export default AnimalRight

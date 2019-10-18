@@ -1,13 +1,61 @@
 import React from 'react'
 
-const Care = () => {
-    return(
-        <div className="container mainContent">
-            <h4 className="center">Care</h4>
-            <p> Lorem ipsum </p>
+export default class Care extends React.Component {
 
-        </div>
-    )
+    state = {
+        cares: [],
+        isLoaded: false,
+        error: null
+    }
+
+    componentDidMount() {
+        fetch("http://localhost:8080/care")
+            .then(response => response.json())
+            .then(result => {
+                this.setState({
+                    isLoaded: true,
+                    cares: result
+                });
+                console.log(this.state.cares)
+            }, error => {
+                this.setState({
+                    isLoaded: true,
+                    error: error
+                });
+            });
+    }
+
+    componentDidUpdate(prevProp) {
+        this.state.cares.map((care, index) => {
+            this.refs['care' + index].innerHTML = care.description
+        });
+    }
+
+    render() {
+        let isLoaded = this.state.isLoaded;
+        let error = this.state.error;
+
+        if (isLoaded) {
+            if(error){
+                return (
+                <div className="container mainContent"> <p> Błąd wczytywania :( </p></div>
+                )
+            }
+            return (
+                <div className="container mainContent">
+                    {this.state.cares.map((care, index) => (
+                        <span>
+                            <h4 className="center"> {care.name} </h4>
+                            <p ref={'care' + index}> </p>
+                        </span>
+                    ))}
+                </div>
+            )
+        } else { 
+            return (
+                <div className="container mainContent"> <p> Wczytywanie . . . </p> </div>
+            )
+        }
+    }
 }
 
-export default Care

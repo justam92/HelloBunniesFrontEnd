@@ -1,13 +1,60 @@
 import React from 'react'
 
-const Disease = () => {
-    return(
-        <div className="container mainContent">
-            <h4 className="center">Disease</h4>
-            <p> Lorem ipsum </p>
+export default class Disease extends React.Component {
 
-        </div>
-    )
+    state = {
+        diseases: [],
+        isLoaded: false,
+        error: null
+    }
+
+    componentDidMount() {
+        fetch("http://localhost:8080/diseases")
+            .then(response => response.json())
+            .then(result => {
+                this.setState({
+                    isLoaded: true,
+                    diseases: result
+                });
+                console.log(this.state.diseases)
+            }, error => {
+                this.setState({
+                    isLoaded: true,
+                    error: error
+                });
+            });
+    }
+
+    componentDidUpdate(prevProp) {
+        this.state.diseases.map((disease, index) => {
+            this.refs['disease' + index].innerHTML = disease.description
+        });
+    }
+
+    render() {
+        let isLoaded = this.state.isLoaded;
+        let error = this.state.error;
+
+        if (isLoaded) {
+            if(error){
+                return (
+                <div className="container mainContent"> <p> Błąd wczytywania :( </p></div>
+                )
+            }
+            return (
+                <div className="container mainContent">
+                    {this.state.diseases.map((disease, index) => (
+                        <span>
+                            <h4 className="center"> {disease.name} </h4>
+                            <p ref={'disease' + index}> </p>
+                        </span>
+                    ))}
+                </div>
+            )
+        } else { 
+            return (
+                <div className="container mainContent"> <p> Wczytywanie . . . </p> </div>
+            )
+        }
+    }
 }
-
-export default Disease
