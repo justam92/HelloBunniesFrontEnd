@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif !important;
-  background-image: url("../img/bunnyBackground.jpg");
+  background-image: url("../img/bunnyBackground_1.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -29,8 +29,15 @@ body {
   -webkit-box-shadow: 7px 7px 14px 2px rgba(0,0,0,0.75);
   -moz-box-shadow: 7px 7px 14px 2px rgba(0,0,0,0.75);
   box-shadow: 7px 7px 14px 2px rgba(0,0,0,0.75);
+  max-height: 60vh;
+  overflow-y: auto;
+  text-align: center;
 }
 
 .mainContent h4, .mainContent p{
   color: #260B01;
+}
+
+table, th, td {
+  border: 1px solid black;
 }
