@@ -14,11 +14,16 @@ const Navbar = () => {
                             <li className="btn-group dropdown">
 
                                 <ul className="dropdown-menu">
+                                    <Link to='/grassAndHay'><li className="dropdown-item">Trawa i siano</li> </Link>
+                                    <Link to='/herbs'> <li className="dropdown-item">Zioła</li> </Link>
                                     <Link to='/vegetables'> <li className="dropdown-item">Warzywa</li> </Link>
                                     <Link to='/fruits'> <li className="dropdown-item">Owoce</li> </Link>
-                                    <Link to='/herbs'> <li className="dropdown-item">Zioła</li> </Link>
                                     <Link to='/seedAndCereal'> <li className="dropdown-item">Nasiona i zboża</li> </Link>
-                                    <Link to='/otherNourishment'> <li className="dropdown-item">Inne</li> </Link>
+                                    <Link to='/saladRecipes'> <li className="dropdown-item">Przepisy na saładki</li> </Link>
+                                    <Link to='/driedFruitsAndVegetables'> <li className="dropdown-item">Suszone owoce i warzywa</li> </Link>
+                                    <Link to='/twigs'> <li className="dropdown-item">Gałązki</li> </Link>
+                                    <Link to='/granules'> <li className="dropdown-item">Granulat</li> </Link>
+                                    <Link to='/water'> <li className="dropdown-item">Woda</li> </Link>
                                 </ul>
                                 <div className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Żywność
@@ -30,7 +35,9 @@ const Navbar = () => {
                             <li className="btn-group dropdown">
 
                                 <ul className="dropdown-menu">
+                                    <Link to='/tamingBunny'> <li className="dropdown-item">Oswajanie królika</li> </Link>
                                     <Link to='/bunnySpeech'> <li className="dropdown-item">Królicza mowa</li> </Link>
+                                    <Link to='/bunnyCare'> <li className="dropdown-item">Pielęgnacja królika</li> </Link>
                                     <Link to='/bunnyCage'> <li className="dropdown-item">Klatka dla królika</li> </Link>
                                     <Link to='/bunnyLittleBoxAndLearnUseIt'> <li className="dropdown-item">Kuweta i nauka korzystania z kuwety</li> </Link>
                                     <Link to='/homeSecurity'> <li className="dropdown-item">Zabezpieczenie domu</li> </Link>
@@ -40,9 +47,7 @@ const Navbar = () => {
                                     <Link to='/walkWithBunny'> <li className="dropdown-item">Spacer z królikiem</li> </Link>
                                     <Link to='/pregnancyAndNewborns'> <li className="dropdown-item">Ciąża i noworodki</li> </Link>
                                     <Link to='/raisingBunny'> <li className="dropdown-item">Podnoszenie królika</li> </Link>
-                                    <Link to='/bunnyPhysiology'> <li className="dropdown-item">Fizjologia</li> </Link>
-                                    <Link to='/tamingBunny'> <li className="dropdown-item">Oswajanie królika</li> </Link>
-                                    <Link to='/bunnyCare'> <li className="dropdown-item">Pielęgnacja królika</li> </Link>
+                                    <Link to='/bunnyPhysiology'> <li className="dropdown-item">Fizjologia</li> </Link>  
                                 </ul>
                                 <div className="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Opieka
