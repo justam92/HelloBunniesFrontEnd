@@ -5,10 +5,8 @@ export default class Home extends Component {
         return (
             <div className="container mainContent">
 
-                <h4 className="center">Home</h4>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <h4 className="center">Strona startowa</h4>
+                <p>Witamy na stronie poświęconej w całości królikom. Zapraszamy do zapoznania się z informacjami związanymi z tymi cudownymi Kickami. Można dowiedzieć się tutaj między innymi czym karmić króliki, jak sprawdzić zdrowie swojego królika i ewentualne symptomy przeróżnych chorób jakie mogą spotkać naszą małą kicającą kulkę.</p>
 
             </div>
         )
