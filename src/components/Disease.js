@@ -9,14 +9,13 @@ export default class Disease extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/diseases")
+        fetch("http://localhost:8080/diseasesCategories/" + this.props.idDiseaseCategory)
             .then(response => response.json())
             .then(result => {
                 this.setState({
                     isLoaded: true,
-                    diseases: result
+                    diseases: result.diseases
                 });
-                console.log(this.state.diseases)
             }, error => {
                 this.setState({
                     isLoaded: true,
@@ -26,7 +25,7 @@ export default class Disease extends React.Component {
     }
 
     componentDidUpdate(prevProp) {
-        this.state.diseases.map((disease, index) => {
+        this.state.diseases.forEach((disease, index) => {
             this.refs['disease' + index].innerHTML = disease.description
         });
     }

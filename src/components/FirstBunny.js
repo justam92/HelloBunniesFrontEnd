@@ -15,7 +15,6 @@ export default class FirstBunny extends React.Component {
                     isLoaded: true,
                     firstBunnies: result
                 });
-                console.log(this.state.firstBunnies)
             }, error => {
                 this.setState({
                     isLoaded: true,
@@ -25,7 +24,7 @@ export default class FirstBunny extends React.Component {
     }
 
     componentDidUpdate(prevProp) {
-        this.state.firstBunnies.map((firstBunny, index) => {
+        this.state.firstBunnies.forEach((firstBunny, index) => {
             this.refs['firstBunny' + index].innerHTML = firstBunny.description
         });
     }

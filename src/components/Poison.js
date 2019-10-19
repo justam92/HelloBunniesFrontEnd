@@ -16,7 +16,6 @@ export default class Poison extends React.Component {
                     isLoaded: true,
                     poisons: result
                 });
-                console.log(this.state.poisons)
             }, error => {
                 this.setState({
                     isLoaded: true,
@@ -26,7 +25,7 @@ export default class Poison extends React.Component {
     }
 
     componentDidUpdate(prevProp) {
-        this.state.poisons.map((poison, index) => {
+        this.state.poisons.forEach((poison, index) => {
             this.refs['poison' + index].innerHTML = poison.description
         });
     }

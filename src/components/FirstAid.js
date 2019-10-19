@@ -16,7 +16,6 @@ export default class FirstAid extends React.Component {
                     isLoaded: true,
                     firstAids: result
                 });
-                console.log(this.state.firstAids)
             }, error => {
                 this.setState({
                     isLoaded: true,
@@ -26,7 +25,7 @@ export default class FirstAid extends React.Component {
     }
 
     componentDidUpdate(prevProp) {
-        this.state.firstAids.map((firstAid, index) => {
+        this.state.firstAids.forEach((firstAid, index) => {
             this.refs['firstAid' + index].innerHTML = firstAid.description
         });
     }

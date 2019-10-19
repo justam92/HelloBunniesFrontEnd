@@ -9,14 +9,13 @@ export default class OtherNourishment extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/otherNourishments")
+        fetch("http://localhost:8080/nourishmentCategories/" + this.props.idNourishmentCategory)
             .then(response => response.json())
             .then(result => {
                 this.setState({
                     isLoaded: true,
-                    otherNourishments: result
+                    otherNourishments: result.otherNourishments
                 });
-                console.log(this.state.otherNourishments)
             }, error => {
                 this.setState({
                     isLoaded: true,
@@ -26,7 +25,7 @@ export default class OtherNourishment extends React.Component {
     }
 
     componentDidUpdate(prevProp) {
-        this.state.otherNourishments.map((otherNourishment, index) => {
+        this.state.otherNourishments.forEach((otherNourishment, index) => {
             this.refs['otherNourishment' + index].innerHTML = otherNourishment.description
         });
     }

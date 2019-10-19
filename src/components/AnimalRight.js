@@ -16,7 +16,6 @@ export default class AnimalRight extends React.Component {
                     isLoaded: true,
                     animalRights: result
                 });
-                console.log(this.state.animalRights)
             }, error => {
                 this.setState({
                     isLoaded: true,
@@ -26,7 +25,7 @@ export default class AnimalRight extends React.Component {
     }
 
     componentDidUpdate(prevProp) {
-        this.state.animalRights.map((animalRight, index) => {
+        this.state.animalRights.forEach((animalRight, index) => {
             this.refs['animalRight' + index].innerHTML = animalRight.description
         });
     }

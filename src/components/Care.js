@@ -9,14 +9,13 @@ export default class Care extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/care")
+        fetch('http://localhost:8080/careCategories/' + this.props.idCareCategory)
             .then(response => response.json())
             .then(result => {
                 this.setState({
                     isLoaded: true,
-                    cares: result
+                    cares: result.careList
                 });
-                console.log(this.state.cares)
             }, error => {
                 this.setState({
                     isLoaded: true,
@@ -26,7 +25,7 @@ export default class Care extends React.Component {
     }
 
     componentDidUpdate(prevProp) {
-        this.state.cares.map((care, index) => {
+        this.state.cares.forEach((care, index) => {
             this.refs['care' + index].innerHTML = care.description
         });
     }
