@@ -26,7 +26,7 @@ export default class Care extends React.Component {
 
     componentDidUpdate(prevProp) {
         this.state.cares.forEach((care, index) => {
-            this.refs['care' + index].innerHTML = care.description
+            this.refs['description' + index].innerHTML = care.description
         });
     }
 
@@ -43,9 +43,9 @@ export default class Care extends React.Component {
             return (
                 <div className="container mainContent">
                     {this.state.cares.map((care, index) => (
-                        <span>
+                        <span key={index}>
                             <h4 className="center"> {care.name} </h4>
-                            <p ref={'care' + index}> </p>
+                            <p ref={'description' + index}> </p>
                         </span>
                     ))}
                 </div>
