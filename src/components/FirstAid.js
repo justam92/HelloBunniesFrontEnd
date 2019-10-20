@@ -26,7 +26,7 @@ export default class FirstAid extends React.Component {
 
     componentDidUpdate(prevProp) {
         this.state.firstAids.forEach((firstAid, index) => {
-            this.refs['firstAid' + index].innerHTML = firstAid.description
+            this.refs['description' + index].innerHTML = firstAid.description
         });
     }
 
@@ -43,9 +43,9 @@ export default class FirstAid extends React.Component {
             return (
                 <div className="container mainContent">
                     {this.state.firstAids.map((firstAid, index) => (
-                        <span>
+                        <span key={index}>
                             <h4 className="center"> {firstAid.name} </h4>
-                            <p ref={'firstAid' + index}> </p>
+                            <p ref={'description' + index}> </p>
                         </span>
                     ))}
                 </div>
