@@ -1,0 +1,20 @@
+.mainContent {
+    background-color: rgba(217, 190, 184, 0.877);
+    padding: 3em !important;
+    border-radius: 1em;
+    border: 2px solid rgba(78, 46, 5, 0.637);
+    -webkit-box-shadow: 7px 7px 14px 2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 7px 7px 14px 2px rgba(0, 0, 0, 0.75);
+    box-shadow: 7px 7px 14px 2px rgba(0, 0, 0, 0.75);
+    max-height: 60vh;
+    overflow-y: auto;
+    text-align: center;
+  }
+  
+  .mainContent h4, .mainContent p {
+    color: #260B01;
+  }
+  
+  table, th, td {
+    border: 1px solid black;
+  }

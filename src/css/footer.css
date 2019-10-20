@@ -1,0 +1,21 @@
+.footerContent {
+    background: rgba(217, 190, 184, 0.877);
+    border-top: 2px solid rgba(78, 46, 5, 0.637);
+    text-align: center;
+    padding: 0.5em 0em 0.5em 0em;
+}
+
+.footerContent p {
+    margin-bottom: 0;
+    font-size: 0.8em;
+}
+
+.footerContent a {
+    color: #260B01;
+}
+
+.footerContent a:hover {
+    text-decoration: none;
+    cursor: pointer;
+    color: aliceblue;
+}
