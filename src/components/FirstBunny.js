@@ -25,7 +25,7 @@ export default class FirstBunny extends React.Component {
 
     componentDidUpdate(prevProp) {
         this.state.firstBunnies.forEach((firstBunny, index) => {
-            this.refs['firstBunny' + index].innerHTML = firstBunny.description
+            this.refs['description' + index].innerHTML = firstBunny.description
         });
     }
 
@@ -42,9 +42,9 @@ export default class FirstBunny extends React.Component {
             return (
                 <div className="container mainContent">
                     {this.state.firstBunnies.map((firstBunny, index) => (
-                        <span>
+                        <span key={index}>
                             <h4 className="center"> {firstBunny.name} </h4>
-                            <p ref={'firstBunny' + index}> </p>
+                            <p ref={'description' + index}> </p>
                         </span>
                     ))}
                 </div>
