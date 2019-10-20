@@ -2,7 +2,7 @@ import React from 'react'
 import { API_URL } from './constant/ApiConstants';
 
 export default class Nourishment extends React.Component {
-    
+
     state = {
         nourishments: [],
         isLoaded: false,
@@ -52,80 +52,86 @@ export default class Nourishment extends React.Component {
             }
             if (this.props.type === "herbs") {
                 return (
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Zioła</th>
-                                <th scope="col">Witamina C</th>
-                                <th scope="col">Wapń</th>
-                                <th scope="col">Fosfor</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.state.nourishments.map((nourishment, index) => (
-                                <tr key={index}>
-                                    <th scope="row"> {nourishment.name} </th>
-                                    <td ref={'vitaminC' + index}> </td>
-                                    <td ref={'calcium' + index}> </td>
-                                    <td ref={'phosphorus' + index}> </td>
+                    <div class="table-responsive">
+                        <table className="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Zioła</th>
+                                    <th scope="col">Witamina C</th>
+                                    <th scope="col">Wapń</th>
+                                    <th scope="col">Fosfor</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {this.state.nourishments.map((nourishment, index) => (
+                                    <tr key={index}>
+                                        <th scope="row"> {nourishment.name} </th>
+                                        <td ref={'vitaminC' + index}> </td>
+                                        <td ref={'calcium' + index}> </td>
+                                        <td ref={'phosphorus' + index}> </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 )
             } else if (this.props.type === "vegetables") {
                 return (
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Warzywo</th>
-                                <th scope="col">Witamina C</th>
-                                <th scope="col">Wapń</th>
-                                <th scope="col">Fosfor</th>
-                                <th scope="col">Częstotliwość podawania</th>
-                                <th scope="col">Co można podawać</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.state.nourishments.map((nourishment, index) => (
-                                <tr key={index}>
-                                    <th scope="row"> {nourishment.name} </th>
-                                    <td ref={'vitaminC' + index}> </td>
-                                    <td ref={'calcium' + index}> </td>
-                                    <td ref={'phosphorus' + index}> </td>
-                                    <td ref={'administrationFrequency' + index}> </td>
-                                    <td ref={'whatCanYouGive' + index}> </td>
+                    <div class="table-responsive">
+                        <table className="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Warzywo</th>
+                                    <th scope="col">Witamina C</th>
+                                    <th scope="col">Wapń</th>
+                                    <th scope="col">Fosfor</th>
+                                    <th scope="col">Częstotliwość podawania</th>
+                                    <th scope="col">Co można podawać</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {this.state.nourishments.map((nourishment, index) => (
+                                    <tr key={index}>
+                                        <th scope="row"> {nourishment.name} </th>
+                                        <td ref={'vitaminC' + index}> </td>
+                                        <td ref={'calcium' + index}> </td>
+                                        <td ref={'phosphorus' + index}> </td>
+                                        <td ref={'administrationFrequency' + index}> </td>
+                                        <td ref={'whatCanYouGive' + index}> </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 )
             } else if (this.props.type === "fruits") {
                 return (
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Owoc</th>
-                                <th scope="col">Witamina C</th>
-                                <th scope="col">Wapń</th>
-                                <th scope="col">Fosfor</th>
-                                <th scope="col">Częstotliwość podawania</th>
-                                <th scope="col">Co można podawać</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.state.nourishments.map((nourishment, index) => (
-                                <tr key={index}>
-                                    <th scope="row"> {nourishment.name} </th>
-                                    <td ref={'vitaminC' + index}> </td>
-                                    <td ref={'calcium' + index}> </td>
-                                    <td ref={'phosphorus' + index}> </td>
-                                    <td ref={'administrationFrequency' + index}> </td>
-                                    <td ref={'whatCanYouGive' + index}> </td>
+                    <div class="table-responsive">
+                        <table className="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Owoc</th>
+                                    <th scope="col">Witamina C</th>
+                                    <th scope="col">Wapń</th>
+                                    <th scope="col">Fosfor</th>
+                                    <th scope="col">Częstotliwość podawania</th>
+                                    <th scope="col">Co można podawać</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {this.state.nourishments.map((nourishment, index) => (
+                                    <tr key={index}>
+                                        <th scope="row"> {nourishment.name} </th>
+                                        <td ref={'vitaminC' + index}> </td>
+                                        <td ref={'calcium' + index}> </td>
+                                        <td ref={'phosphorus' + index}> </td>
+                                        <td ref={'administrationFrequency' + index}> </td>
+                                        <td ref={'whatCanYouGive' + index}> </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 )
             }
         } else {
@@ -135,20 +141,20 @@ export default class Nourishment extends React.Component {
         }
     }
 
-    getNourishments(){
+    getNourishments() {
         fetch(API_URL + '/nourishmentCategories/' + this.props.idNourishmentCategory)
-        .then(response => response.json())
-        .then(result => {
-            this.setState({
-                isLoaded: true,
-                nourishments: result.nourishments
+            .then(response => response.json())
+            .then(result => {
+                this.setState({
+                    isLoaded: true,
+                    nourishments: result.nourishments
+                });
+            }, error => {
+                this.setState({
+                    isLoaded: true,
+                    error: error
+                });
             });
-        }, error => {
-            this.setState({
-                isLoaded: true,
-                error: error
-            });
-        });
     }
 
 }

@@ -32,24 +32,26 @@ export default class SeedAndCereal extends React.Component {
             }
             if (this.props.type === "seedAndCereal") {
                 return (
-                    <table className="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">Nazwa</th>
-                                <th scope="col">Oleista/zboże</th>
-                                <th scope="col">Przeznaczenie</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {this.state.seedsAndCereals.map((seedAndCereal, index) => (
-                                <tr key={index}>
-                                    <th scope="row"> {seedAndCereal.name} </th>
-                                    <td ref={'oilyOrCereal' + index}> </td>
-                                    <td ref={'destiny' + index}> </td>
+                    <div class="table-responsive">
+                        <table className="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nazwa</th>
+                                    <th scope="col">Oleista/zboże</th>
+                                    <th scope="col">Przeznaczenie</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                {this.state.seedsAndCereals.map((seedAndCereal, index) => (
+                                    <tr key={index}>
+                                        <th scope="row"> {seedAndCereal.name} </th>
+                                        <td ref={'oilyOrCereal' + index}> </td>
+                                        <td ref={'destiny' + index}> </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 )
             }
         } else {
@@ -59,20 +61,20 @@ export default class SeedAndCereal extends React.Component {
         }
     }
 
-    getSeedsAndCereals(){
+    getSeedsAndCereals() {
         fetch(API_URL + '/nourishmentCategories/' + this.props.idNourishmentCategory)
-        .then(response => response.json())
-        .then(result => {
-            this.setState({
-                isLoaded: true,
-                seedsAndCereals: result.seedsAndCereals
+            .then(response => response.json())
+            .then(result => {
+                this.setState({
+                    isLoaded: true,
+                    seedsAndCereals: result.seedsAndCereals
+                });
+            }, error => {
+                this.setState({
+                    isLoaded: true,
+                    error: error
+                });
             });
-        }, error => {
-            this.setState({
-                isLoaded: true,
-                error: error
-            });
-        });
     }
 
 }
