@@ -26,7 +26,7 @@ export default class Poison extends React.Component {
 
     componentDidUpdate(prevProp) {
         this.state.poisons.forEach((poison, index) => {
-            this.refs['poison' + index].innerHTML = poison.description
+            this.refs['description' + index].innerHTML = poison.description
         });
     }
 
@@ -43,9 +43,9 @@ export default class Poison extends React.Component {
             return (
                 <div className="container mainContent">
                     {this.state.poisons.map((poison, index) => (
-                        <span>
+                        <span key={index}>
                             <h4 className="center"> {poison.name} </h4>
-                            <p ref={'poison' + index}> </p>
+                            <p ref={'description' + index}> </p>
                         </span>
                     ))}
                 </div>
