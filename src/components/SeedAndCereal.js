@@ -2,7 +2,7 @@ import React from 'react'
 
 export default class SeedAndCereal extends React.Component {
     state = {
-        seedAndCereals: [],
+        seedsAndCereals: [],
         isLoaded: false,
         error: null
     }
@@ -13,7 +13,7 @@ export default class SeedAndCereal extends React.Component {
             .then(result => {
                 this.setState({
                     isLoaded: true,
-                    seedAndCereals: result.seedAndCereals
+                    seedsAndCereals: result.seedsAndCereals
                 });
             }, error => {
                 this.setState({
@@ -24,9 +24,9 @@ export default class SeedAndCereal extends React.Component {
     }
 
     componentDidUpdate(prevProp) {
-        this.state.seedAndCereals.forEach((seedAndCereal, index) => {
-            this.refs['seedAndCereal' + index].innerHTML = seedAndCereal.oilyOrCereal
-            this.refs['seedAndCereal' + index].innerHTML = seedAndCereal.destiny
+        this.state.seedsAndCereals.forEach((seedAndCereal, index) => {
+            this.refs['oilyOrCereal' + index].innerHTML = seedAndCereal.oilyOrCereal
+            this.refs['destiny' + index].innerHTML = seedAndCereal.destiny
         });
     }
 
@@ -35,22 +35,34 @@ export default class SeedAndCereal extends React.Component {
         let error = this.state.error;
 
         if (isLoaded) {
-            if(error){
+            if (error) {
                 return (
-                <div className="container mainContent"> <p> Błąd wczytywania :( </p></div>
+                    <div className="container mainContent"> <p> Błąd wczytywania :( </p></div>
                 )
             }
-            return (
-                <div className="container mainContent">
-                    {this.state.seedAndCereals.map((seedAndCereal, index) => (
-                        <span>
-                            <h4 className="center"> {seedAndCereal.name} </h4>
-                            <p ref={'seedAndCereal' + index}> </p>
-                        </span>
-                    ))}
-                </div>
-            )
-        } else { 
+            if (this.props.type === "seedAndCereal") {
+                return (
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nazwa</th>
+                                <th scope="col">Oleista/zboże</th>
+                                <th scope="col">Przeznaczenie</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {this.state.seedsAndCereals.map((seedAndCereal, index) => (
+                                <tr key={index}>
+                                    <th scope="row"> {seedAndCereal.name} </th>
+                                    <td ref={'oilyOrCereal' + index}> </td>
+                                    <td ref={'destiny' + index}> </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                )
+            }
+        } else {
             return (
                 <div className="container mainContent"> <p> Wczytywanie . . . </p> </div>
             )
