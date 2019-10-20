@@ -7,13 +7,14 @@ import AnimalRight from './components/AnimalRight'
 import Poison from './components/Poison'
 import FirstBunny from './components/FirstBunny'
 import FirstAid from './components/FirstAid'
-import SeedAndCereal from './components/SeedAndCereal'
 import OtherNourishment from './components/OtherNourishment'
 import Care from './components/Care'
 import Disease from './components/Disease'
 import HerbsView from './components/HerbsView';
 import VegetablesView from './components/VegetablesView';
 import FruitsView from './components/FruitsView';
+import Footer from './components/Footer';
+import SeedAndCerealView from './components/SeedAndCerealView'
 
 export default class App extends Component {
   render() {
@@ -33,7 +34,7 @@ export default class App extends Component {
             <Route path='/herbs' render={(props) => <HerbsView idNourishmentCategory = {2}></HerbsView>} />
             <Route path='/vegetables' render={(props) => <VegetablesView idNourishmentCategory = {3}></VegetablesView>} />
             <Route path='/fruits' render={(props) => <FruitsView idNourishmentCategory = {4}></FruitsView>} />
-            <Route path='/seedAndCereal' render={(props) => <SeedAndCereal idNourishmentCategory = {5}></SeedAndCereal>} />
+            <Route path='/seedAndCereal' render={(props) => <SeedAndCerealView idNourishmentCategory = {5}></SeedAndCerealView>} />
             <Route path='/saladRecipes' render={(props) => <OtherNourishment idNourishmentCategory = {6}></OtherNourishment>} />
             <Route path='/driedFruitsAndVegetables' render={(props) => <OtherNourishment idNourishmentCategory = {7}></OtherNourishment>} />
             <Route path='/twigs' render={(props) => <OtherNourishment idNourishmentCategory = {8}></OtherNourishment>} />
@@ -69,7 +70,7 @@ export default class App extends Component {
             <Route path='/otherDiseases' render={(props) => <Disease idDiseaseCategory = {13}></Disease>} />
 
             <Route path='/firstAidKit' render={(props) => <Disease idDiseaseCategory = {14}></Disease>} />
-
+            <Footer />
           </div>
         </div>
       </BrowserRouter>
