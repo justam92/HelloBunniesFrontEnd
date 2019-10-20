@@ -26,7 +26,7 @@ export default class OtherNourishment extends React.Component {
 
     componentDidUpdate(prevProp) {
         this.state.otherNourishments.forEach((otherNourishment, index) => {
-            this.refs['otherNourishment' + index].innerHTML = otherNourishment.description
+            this.refs['description' + index].innerHTML = otherNourishment.description
         });
     }
 
@@ -43,9 +43,9 @@ export default class OtherNourishment extends React.Component {
             return (
                 <div className="container mainContent">
                     {this.state.otherNourishments.map((otherNourishment, index) => (
-                        <span>
+                        <span key={index}>
                             <h4 className="center"> {otherNourishment.name} </h4>
-                            <p ref={'otherNourishment' + index}> </p>
+                            <p ref={'description' + index}> </p>
                         </span>
                     ))}
                 </div>
