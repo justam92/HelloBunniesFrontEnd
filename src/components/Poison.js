@@ -1,4 +1,5 @@
 import React from 'react'
+import { API_URL } from './constant/ApiConstants';
 
 export default class Poison extends React.Component {
    
@@ -9,19 +10,7 @@ export default class Poison extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/poisons")
-            .then(response => response.json())
-            .then(result => {
-                this.setState({
-                    isLoaded: true,
-                    poisons: result
-                });
-            }, error => {
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
+        this.getPoisons();
     }
 
     componentDidUpdate(prevProp) {
@@ -56,4 +45,21 @@ export default class Poison extends React.Component {
             )
         }
     }
+
+    getPoisons(){
+        fetch(API_URL + '/poisons')
+        .then(response => response.json())
+        .then(result => {
+            this.setState({
+                isLoaded: true,
+                poisons: result
+            });
+        }, error => {
+            this.setState({
+                isLoaded: true,
+                error: error
+            });
+        });
+    }
+
 }

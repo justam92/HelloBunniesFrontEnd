@@ -1,4 +1,5 @@
 import React from 'react'
+import { API_URL } from './constant/ApiConstants';
 
 export default class Care extends React.Component {
 
@@ -9,19 +10,7 @@ export default class Care extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:8080/careCategories/' + this.props.idCareCategory)
-            .then(response => response.json())
-            .then(result => {
-                this.setState({
-                    isLoaded: true,
-                    cares: result.careList
-                });
-            }, error => {
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
+        this.getCares();
     }
 
     componentDidUpdate(prevProp) {
@@ -56,5 +45,21 @@ export default class Care extends React.Component {
             )
         }
     }
-}
 
+    getCares(){
+        fetch(API_URL + '/careCategories/' + this.props.idCareCategory)
+        .then(response => response.json())
+        .then(result => {
+            this.setState({
+                isLoaded: true,
+                cares: result.careList
+            });
+        }, error => {
+            this.setState({
+                isLoaded: true,
+                error: error
+            });
+        });
+    }
+    
+}

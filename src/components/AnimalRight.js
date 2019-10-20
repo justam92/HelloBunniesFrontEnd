@@ -1,4 +1,5 @@
 import React from 'react'
+import { API_URL } from './constant/ApiConstants';
 
 export default class AnimalRight extends React.Component {
 
@@ -9,19 +10,7 @@ export default class AnimalRight extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/animalRights")
-            .then(response => response.json())
-            .then(result => {
-                this.setState({
-                    isLoaded: true,
-                    animalRights: result
-                });
-            }, error => {
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
+        this.getAnimalRights();
     }
 
     componentDidUpdate(prevProp) {
@@ -56,4 +45,21 @@ export default class AnimalRight extends React.Component {
             )
         }
     }
+
+    getAnimalRights(){
+        fetch(API_URL + '/animalRights')
+        .then(response => response.json())
+        .then(result => {
+            this.setState({
+                isLoaded: true,
+                animalRights: result
+            });
+        }, error => {
+            this.setState({
+                isLoaded: true,
+                error: error
+            });
+        });
+    }
+    
 }

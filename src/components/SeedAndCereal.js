@@ -1,6 +1,8 @@
 import React from 'react'
+import { API_URL } from './constant/ApiConstants';
 
 export default class SeedAndCereal extends React.Component {
+
     state = {
         seedsAndCereals: [],
         isLoaded: false,
@@ -8,19 +10,7 @@ export default class SeedAndCereal extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/nourishmentCategories/" + this.props.idNourishmentCategory)
-            .then(response => response.json())
-            .then(result => {
-                this.setState({
-                    isLoaded: true,
-                    seedsAndCereals: result.seedsAndCereals
-                });
-            }, error => {
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
+        this.getSeedsAndCereals();
     }
 
     componentDidUpdate(prevProp) {
@@ -68,4 +58,21 @@ export default class SeedAndCereal extends React.Component {
             )
         }
     }
+
+    getSeedsAndCereals(){
+        fetch(API_URL + '/nourishmentCategories/' + this.props.idNourishmentCategory)
+        .then(response => response.json())
+        .then(result => {
+            this.setState({
+                isLoaded: true,
+                seedsAndCereals: result.seedsAndCereals
+            });
+        }, error => {
+            this.setState({
+                isLoaded: true,
+                error: error
+            });
+        });
+    }
+
 }

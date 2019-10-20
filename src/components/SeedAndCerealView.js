@@ -1,25 +1,16 @@
 import React from 'react'
 import SeedAndCereal from './SeedAndCereal';
+import { API_URL } from './constant/ApiConstants';
 
 export default class HerbsView extends React.Component {
+
     state = {
         isLoaded: false,
         error: null
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/nourishmentCategories/" )
-            .then(response => response.json())
-            .then(result => {
-                this.setState({
-                    isLoaded: true
-                });
-            }, error => {
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
+        this.getSeedAndCerealViews();
     }
 
     render() {
@@ -53,4 +44,20 @@ export default class HerbsView extends React.Component {
             )
         }
     }
+
+    getSeedAndCerealViews(){
+        fetch(API_URL + '/nourishmentCategories/')
+        .then(response => response.json())
+        .then(result => {
+            this.setState({
+                isLoaded: true
+            });
+        }, error => {
+            this.setState({
+                isLoaded: true,
+                error: error
+            });
+        });
+    }
+
 }

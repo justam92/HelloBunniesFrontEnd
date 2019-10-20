@@ -1,5 +1,6 @@
 import React from 'react'
 import Nourishment from './Nourishment'
+import { API_URL } from './constant/ApiConstants';
 
 export default class HerbsView extends React.Component {
     
@@ -9,18 +10,7 @@ export default class HerbsView extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/nourishmentCategories/" )
-            .then(response => response.json())
-            .then(result => {
-                this.setState({
-                    isLoaded: true
-                });
-            }, error => {
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
+        this.getHerbsViews();
     }
 
     render() {
@@ -81,4 +71,20 @@ export default class HerbsView extends React.Component {
             )
         }
     }
+
+    getHerbsViews(){
+        fetch(API_URL + '/nourishmentCategories/')
+        .then(response => response.json())
+        .then(result => {
+            this.setState({
+                isLoaded: true
+            });
+        }, error => {
+            this.setState({
+                isLoaded: true,
+                error: error
+            });
+        });
+    }
+
 }

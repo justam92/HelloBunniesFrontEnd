@@ -1,4 +1,5 @@
 import React from 'react'
+import { API_URL } from './constant/ApiConstants';
 
 export default class FirstAid extends React.Component {
 
@@ -9,19 +10,7 @@ export default class FirstAid extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/firstAids")
-            .then(response => response.json())
-            .then(result => {
-                this.setState({
-                    isLoaded: true,
-                    firstAids: result
-                });
-            }, error => {
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
+        this.getFirstAids();
     }
 
     componentDidUpdate(prevProp) {
@@ -56,5 +45,21 @@ export default class FirstAid extends React.Component {
             )
         }
     }
-}
 
+    getFirstAids(){
+        fetch(API_URL + '/firstAids')
+            .then(response => response.json())
+            .then(result => {
+                this.setState({
+                    isLoaded: true,
+                    firstAids: result
+                });
+            }, error => {
+                this.setState({
+                    isLoaded: true,
+                    error: error
+                });
+            });
+    }
+
+}

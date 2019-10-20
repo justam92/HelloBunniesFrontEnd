@@ -1,6 +1,8 @@
 import React from 'react'
+import { API_URL } from './constant/ApiConstants';
 
 export default class FirstBunny extends React.Component {
+    
     state = {
         firstBunnies: [],
         isLoaded: false,
@@ -8,19 +10,7 @@ export default class FirstBunny extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/firstBunnies")
-            .then(response => response.json())
-            .then(result => {
-                this.setState({
-                    isLoaded: true,
-                    firstBunnies: result
-                });
-            }, error => {
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
+        this.getFirstBunnies();
     }
 
     componentDidUpdate(prevProp) {
@@ -55,4 +45,21 @@ export default class FirstBunny extends React.Component {
             )
         }
     }
+
+    getFirstBunnies(){
+        fetch(API_URL + '/firstBunnies')
+        .then(response => response.json())
+        .then(result => {
+            this.setState({
+                isLoaded: true,
+                firstBunnies: result
+            });
+        }, error => {
+            this.setState({
+                isLoaded: true,
+                error: error
+            });
+        });
+    }
+
 }

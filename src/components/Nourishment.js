@@ -1,6 +1,8 @@
 import React from 'react'
+import { API_URL } from './constant/ApiConstants';
 
 export default class Nourishment extends React.Component {
+    
     state = {
         nourishments: [],
         isLoaded: false,
@@ -8,19 +10,7 @@ export default class Nourishment extends React.Component {
     }
 
     componentDidMount() {
-        fetch("http://localhost:8080/nourishmentCategories/" + this.props.idNourishmentCategory)
-            .then(response => response.json())
-            .then(result => {
-                this.setState({
-                    isLoaded: true,
-                    nourishments: result.nourishments
-                });
-            }, error => {
-                this.setState({
-                    isLoaded: true,
-                    error: error
-                });
-            });
+        this.getNourishments();
     }
 
     componentDidUpdate(prevProp) {
@@ -144,4 +134,21 @@ export default class Nourishment extends React.Component {
             )
         }
     }
+
+    getNourishments(){
+        fetch(API_URL + '/nourishmentCategories/' + this.props.idNourishmentCategory)
+        .then(response => response.json())
+        .then(result => {
+            this.setState({
+                isLoaded: true,
+                nourishments: result.nourishments
+            });
+        }, error => {
+            this.setState({
+                isLoaded: true,
+                error: error
+            });
+        });
+    }
+
 }
