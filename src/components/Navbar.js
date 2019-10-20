@@ -13,7 +13,7 @@ const Navbar = () => {
 
                             <li className="btn-group dropdown">
 
-                                <ul className="dropdown-menu">
+                                <ul className="nourishment dropdown-menu">
                                     <Link to='/grassAndHay'><li className="dropdown-item">Trawa i siano</li> </Link>
                                     <Link to='/herbs'> <li className="dropdown-item">Zioła</li> </Link>
                                     <Link to='/vegetables'> <li className="dropdown-item">Warzywa</li> </Link>
@@ -34,7 +34,7 @@ const Navbar = () => {
 
                             <li className="btn-group dropdown">
 
-                                <ul className="dropdown-menu">
+                                <ul className="care dropdown-menu">
                                     <Link to='/tamingBunny'> <li className="dropdown-item">Oswajanie królika</li> </Link>
                                     <Link to='/bunnySpeech'> <li className="dropdown-item">Królicza mowa</li> </Link>
                                     <Link to='/bunnyCare'> <li className="dropdown-item">Pielęgnacja królika</li> </Link>
@@ -55,7 +55,7 @@ const Navbar = () => {
                             </li>
 
                             <li className="btn-group dropdown">
-                                <ul className="dropdown-menu">
+                                <ul className="disease dropdown-menu">
 
                                     <Link to='/boneDiseases'> <li className="dropdown-item"> Choroby kości </li> </Link>
                                     <Link to='/eyeDiseases'> <li className="dropdown-item"> Choroby oczu </li> </Link>
