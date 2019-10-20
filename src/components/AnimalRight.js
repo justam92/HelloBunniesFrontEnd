@@ -26,7 +26,7 @@ export default class AnimalRight extends React.Component {
 
     componentDidUpdate(prevProp) {
         this.state.animalRights.forEach((animalRight, index) => {
-            this.refs['animalRight' + index].innerHTML = animalRight.description
+            this.refs['description' + index].innerHTML = animalRight.description
         });
     }
 
@@ -43,9 +43,9 @@ export default class AnimalRight extends React.Component {
             return (
                 <div className="container mainContent">
                     {this.state.animalRights.map((animalRight, index) => (
-                        <span>
+                        <span key={index}>
                             <h4 className="center"> {animalRight.name} </h4>
-                            <p ref={'animalRight' + index}> </p>
+                            <p ref={'description' + index}> </p>
                         </span>
                     ))}
                 </div>
