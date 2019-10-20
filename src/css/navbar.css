@@ -1,43 +1,107 @@
-
  .menu nav.navbar.navbar-collapse {
-    display: flex;
-    justify-content: center;
-    background:  rgba(217, 190, 184, 0.877);
-    border-bottom: 2px solid rgba(78, 46, 5, 0.637);
+   display: flex;
+   justify-content: center;
+   background: rgba(217, 190, 184, 0.877);
+   border-bottom: 2px solid rgba(78, 46, 5, 0.637);
+ }
+
+ .menu nav.navbar.navbar-collapse li {
+   padding: 0.25em 0.5em;
+   margin: 0 0.25em;
+ }
+
+ .menu nav.navbar.navbar-collapse li.dropdown-item {
+   margin: 0;
+ }
+
+ .menu nav.navbar.navbar-collapse li.dropdown-item:hover {
+   background: rgba(38, 11, 1, 0.575);
+   color: #D9BEB8;
+ }
+
+ .menu nav.navbar.navbar-collapse li, .menu nav.navbar.navbar-collapse div.dropdown-toggle {
+   color: #260B01;
+ }
+
+ .menu a:hover {
+   text-decoration: none;
+   cursor: pointer;
+ }
+
+ .menu nav.navbar.navbar-collapse div.dropdown-toggle:hover {
+   cursor: pointer;
+ }
+
+ .menu ul.dropdown-menu.show {
+   background: rgba(217, 190, 184);
+   border: 2px solid rgba(78, 46, 5, 0.637);
+ }
+
+ .menu ul.dropdown-menu.show a, .dropdown-header, .megamenu p {
+   text-align: center;
+ }
+
+ @media only screen and (max-width: 780px) {
+
+  .disease.dropdown-menu.show,
+  .care.dropdown-menu.show{
+    position: absolute;
+    left: -180px;
   }
-  
-  .menu nav.navbar.navbar-collapse li{
-    padding: 0.25em 0.5em;
-    margin: 0 0.25em;
+
+ }
+
+ @media only screen and (max-width: 648px) {
+
+  .disease.dropdown-menu.show{
+    position: absolute;
+    left: 0px;
   }
-  
-  .menu nav.navbar.navbar-collapse li.dropdown-item{
-    margin: 0;
+
+ }
+
+ @media only screen and (max-width: 550px) {
+
+  .disease.dropdown-menu.show,
+  .care.dropdown-menu.show{
+    position: absolute;
+    left: 0px;
   }
-  
-  .menu nav.navbar.navbar-collapse li.dropdown-item:hover{
-    background: rgba(38, 11, 1, 0.575);
-    color: #D9BEB8;
+
+ }
+
+ @media only screen and (max-width: 460px) {
+
+  .care.dropdown-menu.show{
+    position: absolute;
+    left: -180px;
   }
-  
-  .menu nav.navbar.navbar-collapse li, .menu nav.navbar.navbar-collapse div.dropdown-toggle{
-    color: #260B01;
+
+ }
+
+ @media only screen and (max-width: 391px) {
+
+  .care.dropdown-menu.show{
+    position: absolute;
+    left: 0px;
   }
-  
-  .menu a:hover{
-    text-decoration: none;
-    cursor: pointer;
+
+ }
+
+ @media only screen and (max-width: 375px) {
+
+  .disease.dropdown-menu.show{
+    position: absolute;
+    left: -80px;
   }
-  
-  .menu nav.navbar.navbar-collapse div.dropdown-toggle:hover{
-    cursor: pointer;
+
+ }
+
+ @media only screen and (max-width: 310px) {
+
+  .care.dropdown-menu.show{
+    position: absolute;
+    left: -10px;
   }
-  
-  .menu ul.dropdown-menu.show{
-    background: rgba(217, 190, 184);
-    border: 2px solid rgba(78, 46, 5, 0.637);
-  }
-  
-  .menu ul.dropdown-menu.show a, .dropdown-header, .megamenu p{
-    text-align: center;
-  }
+
+ }
